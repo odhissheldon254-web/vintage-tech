@@ -10,11 +10,17 @@
   <meta property="og:description" content="Now showing: real platforms, built in Nairobi. Pick one, make it yours.">
   <meta property="og:url" content="https://vintage.odhis.co.ke/">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://vintage.odhis.co.ke/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Courier+Prime:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css?v=1">
+  <link rel="stylesheet" href="assets/styles.css?v=2">
 </head>
 <body class="intro-on">
 
@@ -48,6 +54,9 @@
       <a href="#how">How it works</a>
       <a href="#studios">Sell here</a>
     </nav>
+    <button class="sound" id="sound" type="button" aria-pressed="false" aria-label="Projector sound off. Turn on">
+      <span class="sound-ico" aria-hidden="true"></span>
+    </button>
     <a class="btn btn-ticket nav-cta" href="#showing">Get tickets</a>
   </header>
 
@@ -160,7 +169,7 @@
     <div class="the-end">
       <p class="te-word">The End</p>
       <p class="te-small">…of the beginning. More platforms coming soon.</p>
-      <p class="te-meta">© <span id="year"></span> Vintage Tech · Nairobi, Kenya</p>
+      <p class="te-meta">© <span id="year"></span> Vintage Tech · Nairobi, Kenya · <a href="privacy.html">Privacy</a></p>
     </div>
   </footer>
 
@@ -175,6 +184,10 @@
         <p class="tr-tag" id="trTag"></p>
         <p class="tr-story" id="trStory"></p>
         <ul class="tr-features" id="trFeatures"></ul>
+        <div class="tr-cast">
+          <p class="tt-label">Cast &amp; crew</p>
+          <ul id="trCast"></ul>
+        </div>
         <div class="tr-ticket">
           <div>
             <p class="tt-label">Admission</p>
@@ -187,7 +200,7 @@
     </div>
   </dialog>
 
-  <script src="assets/data.js?v=1"></script>
-  <script src="assets/app.js?v=1"></script>
+  <script src="assets/data.js?v=2"></script>
+  <script src="assets/app.js?v=2"></script>
 </body>
 </html>

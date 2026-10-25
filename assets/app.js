@@ -153,6 +153,8 @@
     $("#trTag").textContent = p.tagline;
     $("#trStory").textContent = p.story;
     $("#trFeatures").innerHTML = p.features.map(function (f) { return "<li>" + esc(f) + "</li>"; }).join("");
+    $("#trCast").innerHTML = (p.cast || []).map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("");
+    $("#trCast").parentNode.hidden = !(p.cast && p.cast.length);
     $("#trPrice").textContent = p.price ? "KES " + Number(p.price).toLocaleString("en-KE") : "Ask for a quote";
     $("#trNote").textContent = "";
 
@@ -161,7 +163,9 @@
     else if (p.status === "private") acts += '<span class="btn btn-ghost" aria-disabled="true">Demo on request</span>';
     if (boxOfficeOpen) acts += '<a class="btn btn-ticket" href="' + esc(requestLink(p)) + '" target="_blank" rel="noopener">Get this platform</a>';
     else acts += '<button class="btn btn-ticket" type="button" data-closed>Get this platform</button>';
+    acts += '<button class="btn btn-ghost btn-share" type="button" data-share="' + esc(p.id) + '">Share trailer</button>';
     $("#trActions").innerHTML = acts;
+    sound.click();
 
     if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
     try { history.replaceState(null, "", "#" + p.id); } catch (e) {}
@@ -179,6 +183,8 @@
   $("#trClose").addEventListener("click", closeTrailer);
   dlg.addEventListener("click", function (e) {
     if (e.target === dlg) closeTrailer(); // tap outside the screen
+    var sh = e.target.closest("[data-share]");
+    if (sh) share(sh.getAttribute("data-share"));
     if (e.target.closest("[data-closed]")) {
       $("#trNote").textContent = "The box office opens very soon. Check back in a few days to book this one.";
     }
@@ -186,6 +192,72 @@
   dlg.addEventListener("cancel", function () {
     try { history.replaceState(null, "", location.pathname + location.search); } catch (e) {}
   });
+
+  function share(id) {
+    var p = VT.platforms.filter(function (x) { return x.id === id; })[0];
+    var url = location.origin + location.pathname + "#" + id;
+    var text = p.title + ": " + p.tagline + " Now showing on Vintage Tech.";
+    if (navigator.share) {
+      navigator.share({ title: p.title + " · Vintage Tech", text: text, url: url }).catch(function () {});
+      return;
+    }
+    var note = $("#trNote");
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(url).then(function () { note.textContent = "Link copied. Paste it anywhere: " + url; },
+        function () { note.textContent = "Copy this link: " + url; });
+    } else {
+      note.textContent = "Copy this link: " + url;
+    }
+  }
+
+  /* ---------- the projector (sound is opt-in, made live, no files) ---------- */
+  var sound = (function () {
+    var ctx = null, whirr = null, on = false, btn = $("#sound");
+    function noiseBuffer(c, secs) {
+      var b = c.createBuffer(1, c.sampleRate * secs, c.sampleRate), d = b.getChannelData(0);
+      for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+      return b;
+    }
+    function start() {
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return false;
+      ctx = ctx || new AC();
+      if (ctx.state === "suspended") ctx.resume();
+      var src = ctx.createBufferSource(); src.buffer = noiseBuffer(ctx, 2); src.loop = true;
+      var band = ctx.createBiquadFilter(); band.type = "bandpass"; band.frequency.value = 520; band.Q.value = 0.8;
+      var gain = ctx.createGain(); gain.gain.value = 0;
+      var flutter = ctx.createOscillator(); flutter.frequency.value = 24; // 24 frames a second
+      var depth = ctx.createGain(); depth.gain.value = 0.018;
+      flutter.connect(depth); depth.connect(gain.gain);
+      src.connect(band); band.connect(gain); gain.connect(ctx.destination);
+      gain.gain.setTargetAtTime(0.035, ctx.currentTime, 0.4);
+      src.start(); flutter.start();
+      whirr = { src: src, flutter: flutter, gain: gain };
+      return true;
+    }
+    function stop() {
+      if (!whirr) return;
+      var w = whirr; whirr = null;
+      w.gain.gain.setTargetAtTime(0, ctx.currentTime, 0.15);
+      setTimeout(function () { try { w.src.stop(); w.flutter.stop(); } catch (e) {} }, 600);
+    }
+    btn.addEventListener("click", function () {
+      on = !on;
+      if (on && !start()) on = false;
+      if (!on) stop();
+      btn.setAttribute("aria-pressed", String(on));
+      btn.setAttribute("aria-label", on ? "Projector sound on. Turn off" : "Projector sound off. Turn on");
+    });
+    return {
+      click: function () { // the shutter clack when a trailer starts
+        if (!on || !ctx) return;
+        var src = ctx.createBufferSource(); src.buffer = noiseBuffer(ctx, 0.08);
+        var hp = ctx.createBiquadFilter(); hp.type = "highpass"; hp.frequency.value = 1800;
+        var g = ctx.createGain(); g.gain.setValueAtTime(0.25, ctx.currentTime); g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
+        src.connect(hp); hp.connect(g); g.connect(ctx.destination); src.start();
+      }
+    };
+  })();
 
   /* ---------- studio application ---------- */
   $("#studioForm").addEventListener("submit", function (e) {

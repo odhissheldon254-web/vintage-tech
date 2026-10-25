@@ -33,6 +33,7 @@ window.VT = {
       palette: ["#1d0f2e", "#ff4f8b", "#ffd36b"],
       glyph: "◆",
       story: "Built for a Nairobi thrift brand. Customers order pickup and delivery across the city, and only sellers who pass five checks get a Verified Plug badge. The owner runs everything from a private admin portal.",
+      cast: ["HTML, CSS, JavaScript", "Supabase (database + sign-in)", "Row-level security", "GitHub Pages"],
       features: [
         "Pickup and delivery orders straight from the site",
         "Verified Plugs: sellers listed only after 5 checks",
@@ -53,6 +54,7 @@ window.VT = {
       palette: ["#2a0f24", "#e7a6b8", "#f6e7d8"],
       glyph: "✦",
       story: "A public site plus a private office for an insurance agent. Clients, meetings, quotes and to-dos live behind her own login, and her phone reminds her before every meeting.",
+      cast: ["HTML, CSS, JavaScript", "Supabase (database, sign-in, private files)", "Phone notifications", "GitHub Pages"],
       features: [
         "Elegant public page that hands leads to WhatsApp",
         "Private office: clients, meetings, quotes, to-dos",
@@ -73,6 +75,7 @@ window.VT = {
       palette: ["#06231d", "#38d39f", "#e9ffd9"],
       glyph: "▲",
       story: "A full phone-financing system running for a Nairobi business. Managers add phones, agents sell them on instalments, customers pay by M-PESA, and the system keeps the books, pays commission and follows up on late loans.",
+      cast: ["Java + Spring Boot", "PostgreSQL", "Apache Fineract (loan ledger)", "M-PESA Daraja API", "Docker on AWS"],
       features: [
         "Loans with instalment plans and interest per phone",
         "M-PESA payments in, commission payouts out",
@@ -93,6 +96,7 @@ window.VT = {
       palette: ["#0c1a33", "#5aa9ff", "#ffe08a"],
       glyph: "■",
       story: "A live board for Chiromo campus that reads the official timetable and shows which lecture rooms are empty this hour, so students stop wandering corridors looking for a place to read.",
+      cast: ["Python", "FastAPI + SQLite", "Timetable importer", "Campus email sign-in"],
       features: [
         "Imports the real timetable",
         "Shows free rooms by the hour",
@@ -112,6 +116,7 @@ window.VT = {
       palette: ["#120f0b", "#e8b04a", "#fff1cf"],
       glyph: "●",
       story: "A personal assistant that lives on the laptop. It runs everyday jobs and learns from past conversations, and it only reports what it actually measured.",
+      cast: ["Python", "Runs locally on Linux", "Learns from conversation history"],
       features: [
         "Runs on your own machine",
         "Learns from your past conversations",
@@ -131,6 +136,7 @@ window.VT = {
       palette: ["#2b1404", "#ff9a3c", "#fff0b3"],
       glyph: "✺",
       story: "Sends personal WhatsApp birthday wishes on the day, through WhatsApp's official business service, so the account never gets banned.",
+      cast: ["Python", "FastAPI + SQLite", "WhatsApp Cloud API (official)", "Docker"],
       features: [
         "Uses the official WhatsApp Cloud service",
         "A birthday list you keep yourself",
