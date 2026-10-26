@@ -9,8 +9,8 @@
 */
 window.VT = {
   contact: {
-    whatsapp: null, // e.g. "2547XXXXXXXX" (country code, no +)
-    email: null     // e.g. "hello@vintagetech.co.ke"
+    whatsapp: "254790743519", // country code, no +
+    email: "odhissheldon254@gmail.com"
   },
 
   products: [

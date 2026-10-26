@@ -47,7 +47,7 @@
     grid.innerHTML = VT.products.map(function (x) {
       var proofLine = x.proof ? (x.proof.url ? '<a href="' + esc(x.proof.url) + '" target="_blank" rel="noopener">' + esc(x.proof.label) + " ↗</a>" : esc(x.proof.label)) : "";
       var price = x.price ? "KES " + Number(x.price).toLocaleString("en-KE") : "Quote";
-      var href = reach("I'd like a quote for " + x.name + ".");
+      var href = reach(x.status === "ready" ? "I'd like a quote for " + x.name + "." : "please add me to the waitlist for " + x.name + ".");
       var btn = href
         ? '<a class="btn" href="' + esc(href) + '" target="_blank" rel="noopener">' + (x.status === "ready" ? "Get a quote" : "Join the waitlist") + "</a>"
         : '<a class="btn" href="#contact" data-closed aria-disabled="true">' + (x.status === "ready" ? "Get a quote" : "Join the waitlist") + "</a>";
@@ -66,7 +66,9 @@
     cta.innerHTML = h ? '<a class="btn lime" href="' + esc(h) + '" target="_blank" rel="noopener">' + (VT.contact.whatsapp ? "Chat on WhatsApp" : "Send an email") + ' <span class="arr">→</span></a>'
       : '<a class="btn lime" href="#contact" data-closed aria-disabled="true">Contact opens soon</a>';
     $("#contactBox").innerHTML = h
-      ? "<b>We reply the same day</b>Tell us your business, your town and what you want it to do."
+      ? "<b>We usually reply quickly on WhatsApp</b>Tell us your business, your town and what you want it to do." +
+        (VT.contact.whatsapp ? '<br><br>WhatsApp <a href="https://wa.me/' + esc(VT.contact.whatsapp) + '" target="_blank" rel="noopener">+' + esc(VT.contact.whatsapp.replace(/^(\d{3})(\d{3})(\d{3})(\d{3})$/, "$1 $2 $3 $4")) + "</a>" : "") +
+        (VT.contact.email ? '<br>or email <a href="mailto:' + esc(VT.contact.email) + '">' + esc(VT.contact.email) + "</a>" : "")
       : "<b>The box office opens soon</b>Contact details are being set up. In the meantime, open a live demo above to see what we build.";
   }
   var airCta = $("#airCta");
