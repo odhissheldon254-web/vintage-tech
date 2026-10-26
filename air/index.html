@@ -6,36 +6,35 @@
   <title>Vintage Air — The workshop for builders</title>
   <meta name="description" content="Vintage Air by Vintage Tech: sealed Ubuntu and Kali boxes, real terminals in your browser, save points and a memory guard. Made for everyday 8 GB laptops.">
   <meta name="theme-color" content="#0a0b0d">
+  <link rel="canonical" href="https://vintage.odhis.co.ke/air/">
   <meta property="og:title" content="Vintage Air — The workshop for builders">
-  <meta property="og:description" content="Sealed Ubuntu and Kali boxes, real terminals, save points. Nothing touches your main system.">
+  <meta property="og:description" content="Vintage Air by Vintage Tech: sealed Ubuntu and Kali boxes, real terminals in your browser, save points and a memory guard. Made for everyday 8 GB laptops.">
   <meta property="og:url" content="https://vintage.odhis.co.ke/air/">
-  <meta property="og:image" content="https://vintage.odhis.co.ke/assets/og-air.jpg?v=1">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://vintage.odhis.co.ke/assets/og-air.jpg?v=4">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../assets/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/site.css?v=2">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="stylesheet" href="../assets/site.css?v=4">
 </head>
 <body class="air">
+  <a class="skip" href="#main">Skip to content</a>
   <header class="nav" id="nav">
     <div class="wrap">
-      <a class="logo" href="./" aria-label="Vintage Air">
-        <svg viewBox="0 0 64 64" aria-hidden="true"><path class="v" d="M14 16 L32 50 L50 16" style="stroke:#c8ff2e"/><circle class="d" cx="50" cy="50" r="5"/></svg>
-        <b>vintage <span>air</span></b>
-      </a>
-      <nav class="nav-links" aria-label="Sections">
-        <a href="#features">Features</a>
-        <a href="#why">Why</a>
-        <a href="../">Vintage Tech ↗</a>
-      </nav>
-      <a class="btn" href="#soon">Get early access</a>
+      <a class="logo" href="../" aria-label="Vintage Tech home"><svg viewBox="0 0 64 64" aria-hidden="true"><path class="v" d="M14 16 L32 50 L50 16"/><circle class="d" cx="50" cy="50" r="5"/></svg><b>vintage <span>air</span></b></a>
+      <nav class="nav-links" id="navLinks" aria-label="Main"><a href="../products/">Products</a><a href="../air/" aria-current="page">Vintage Air</a><a href="../how/">How it works</a><a href="../about/">About</a><a class="m-only" href="https://wa.me/254790743519?text=Hi%20Vintage%20Tech%2C%20I%27d%20like%20to%20talk%20about%20a%20platform%20for%20my%20business." target="_blank" rel="noopener">Get a quote on WhatsApp →</a></nav>
+      <a class="btn nav-cta" href="https://wa.me/254790743519?text=Hi%20Vintage%20Tech%2C%20I%27d%20like%20to%20talk%20about%20a%20platform%20for%20my%20business." target="_blank" rel="noopener">Get a quote</a>
+      <button class="menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Menu"><span></span><span></span></button>
     </div>
   </header>
-
-  <main>
+  <main id="main">
     <section class="hero air-hero">
       <div class="wrap">
         <p class="kicker">A Vintage Tech product · In private use</p>
@@ -89,22 +88,33 @@
           <p class="kicker">Early access</p>
           <h2>Vintage Air is in private use.</h2>
           <p>We build every Vintage Tech product with it. A public version for Debian and Ubuntu is on the way. Leave your details and you'll hear first.</p>
-          <div class="cta" style="justify-content:center" id="airCta"></div>
-          <p class="note" id="airNote"></p>
+          <div class="cta" style="justify-content:center"><a class="btn" href="https://wa.me/254790743519?text=Hi%20Vintage%20Tech%2C%20I%27d%20like%20early%20access%20to%20Vintage%20Air." target="_blank" rel="noopener">Ask for early access on WhatsApp <span class="arr">→</span></a></div>
         </div>
       </div>
     </section>
-  </main>
+  
 
+  </main>
+  <section class="band dark">
+    <div class="wrap band-in rv">
+      <div>
+        <p class="kicker">Let's talk</p>
+        <h2>Tell us about your business.</h2>
+        <p>One WhatsApp conversation is enough to know which product fits and what it would cost.</p>
+      </div>
+      <div class="band-cta">
+        <a class="btn lime big" href="https://wa.me/254790743519?text=Hi%20Vintage%20Tech%2C%20I%27d%20like%20to%20talk%20about%20a%20platform%20for%20my%20business." target="_blank" rel="noopener">Chat on WhatsApp <span class="arr">→</span></a>
+        <p class="mono small">+254 790 743 519 · <a href="mailto:odhissheldon254@gmail.com">odhissheldon254@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
   <footer class="foot">
     <div class="wrap">
-      <a class="logo" href="./"><svg viewBox="0 0 64 64" aria-hidden="true"><path class="v" d="M14 16 L32 50 L50 16" style="stroke:#c8ff2e"/><circle class="d" cx="50" cy="50" r="5"/></svg><b>vintage <span>air</span></b></a>
-      <a href="../">Vintage Tech</a><a href="../privacy.html">Privacy</a>
-      <span>© <span id="year"></span> Vintage Tech · Nairobi</span>
+      <a class="logo" href="../"><svg viewBox="0 0 64 64" aria-hidden="true"><path class="v" d="M14 16 L32 50 L50 16"/><circle class="d" cx="50" cy="50" r="5"/></svg><b>vintage <span>tech</span></b></a>
+      <a href="../products/">Products</a><a href="../air/">Vintage Air</a><a href="../how/">How it works</a><a href="../about/">About</a><a href="../privacy.html">Privacy</a>
+      <span>© <span data-year>2026</span> Vintage Tech · Nairobi</span>
     </div>
   </footer>
-
-  <script src="../assets/data.js?v=6"></script>
-  <script src="../assets/site.js?v=4"></script>
+  <script src="../assets/site.js?v=5" defer></script>
 </body>
 </html>

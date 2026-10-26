@@ -1,20 +1,29 @@
 # Vintage Tech
 
-A platform full of platforms. A cinema-themed marketplace of real, ready-built platforms, made in Nairobi.
+The shop window for Vintage Tech, a Nairobi software studio. Live at https://vintage.odhis.co.ke
 
-Live: https://vintage.odhis.co.ke
+## Pages
+| Path | What |
+|---|---|
+| `/` | Home: hero, products, Vintage Air, how buying works |
+| `/products/` | The catalogue, with Ready / In build filters |
+| `/products/<id>/` | One page per product: phone illustration, features, FAQ, WhatsApp quote |
+| `/how/` | How buying works, three levels, honest FAQ |
+| `/about/` | Who Vintage Tech is |
+| `/air/` | Vintage Air, the flagship workshop (dark) |
 
-## How it's made
-Plain HTML, CSS and JavaScript. There's no build step. It's hosted free on GitHub Pages.
+## How to change things
+Everything comes from **`tools/products.json`** (products, features, FAQs, WhatsApp, email).
 
-- `index.html`: the page
-- `assets/styles.css`: the look (film grain, marquee, posters)
-- `assets/app.js`: intro countdown, posters, trailers, forms
-- `assets/data.js`: **everything listed on the site.** Edit this file to change listings, prices and contact.
+```
+python3 tools/build.py      # regenerates every page + assets/data.js
+git add -A && git commit -m "..." && git push
+```
+The Vintage Air page content lives in `tools/air-body.html`. Shared look: `assets/site.css`. Small behaviours: `assets/site.js` (pages work without it).
 
-## Rules for listings
-- List only platforms that really exist. Never invent a listing, a studio or a price.
-- `price: null` shows "Ask for a quote".
-- While `contact.whatsapp` and `contact.email` are both `null`, the box office is closed and nothing is sent anywhere.
+Share images per product: `node tools/og.js <path-to-node_modules-with-puppeteer-core>` renders `tools/og/*.html` to `assets/og-<id>.jpg`.
 
-After editing, bump `?v=` on the script/style tags in `index.html` so phones load the new version.
+## Rules
+- Only list real products. `ready` = running for a real client. `build` = being made. Prices are quotes until set.
+- Phone screens on product pages are **illustrations** and are labelled as such.
+- After changing `site.css` or `site.js`, bump the numbers in `V = {...}` at the top of `tools/build.py`.
