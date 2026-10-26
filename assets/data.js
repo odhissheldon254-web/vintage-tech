@@ -1,11 +1,12 @@
-/* Vintage Tech — the programme.
-   Everything the site shows comes from this file. Edit here, push, done.
+/* Vintage Tech: the catalogue.
+   Everything the shop window lists comes from this file. Edit here, push, done.
 
    RULES
-   - Only list platforms that really exist. Never invent a listing, a studio or a price.
-   - price: null shows "Ask for a quote". Set a number (KES) only when Sheldon decides it.
-   - contact: while both are null the box office is closed (buttons explain that
-     instead of sending anywhere). Fill one in to open it.
+   - Only list products that really exist or are honestly marked "build" / "soon".
+   - status: "ready" = the engine already runs for a real client · "build" = being made · "soon" = planned
+   - price: null shows "Quote". Set a number (KES) only when Sheldon decides it.
+   - contact: while both are null the box office is closed and buttons say so.
+   - Phone Financing (Mifos) is deliberately NOT listed while Sheldon works on it.
 */
 window.VT = {
   contact: {
@@ -13,113 +14,67 @@ window.VT = {
     email: null     // e.g. "hello@vintagetech.co.ke"
   },
 
-  // Studios = sellers. Vintage Tech is the first. Outside studios join after review.
-  studios: [
-    { id: "vintage", name: "Vintage Tech", city: "Nairobi", verified: true }
-  ],
-
-  genres: ["Commerce", "Business", "Campus", "Assistants", "Bots"],
-
-  platforms: [
+  products: [
     {
-      id: "sosick",
-      title: "Sosick",
-      tagline: "A shop that delivers. Sellers you can trust.",
-      genre: "Commerce",
-      studio: "vintage",
-      status: "live",
-      link: "https://sosick.odhis.co.ke",
+      id: "duka",
+      name: "Duka",
+      line: "An online shop that delivers.",
+      for: "Shops, thrift sellers, kitchens and anyone selling in Nairobi",
+      status: "ready",
+      proof: { label: "Running at sosick.odhis.co.ke", url: "https://sosick.odhis.co.ke" },
       price: null,
-      palette: ["#1d0f2e", "#ff4f8b", "#ffd36b"],
-      glyph: "◆",
-      story: "Built for a Nairobi thrift brand. Customers order pickup and delivery across the city, and only sellers who pass five checks get a Verified Plug badge. The owner runs everything from a private admin portal.",
-      cast: ["HTML, CSS, JavaScript", "Supabase (database + sign-in)", "Row-level security", "GitHub Pages"],
+      accent: "#ff5a8a",
       features: [
-        "Pickup and delivery orders straight from the site",
-        "Verified Plugs: sellers listed only after 5 checks",
-        "Private admin portal: orders, team, charges, plugs",
-        "Fees the owner switches on himself, never hard-coded",
-        "Built-in helper that answers common questions"
+        "Customers order pickup or delivery straight from your site",
+        "Verified sellers: listed only after you check them",
+        "Private admin for orders, team and charges",
+        "Fees you switch on yourself, nothing hard-coded"
       ]
     },
     {
-      id: "agiza",
-      title: "The Office",
-      tagline: "An agent's whole day, in her pocket.",
-      genre: "Business",
-      studio: "vintage",
-      status: "live",
-      link: "https://agiza.odhis.co.ke",
+      id: "office",
+      name: "The Office",
+      line: "Your clients and meetings, in your pocket.",
+      for: "Insurance agents, property agents, SACCO and sales reps",
+      status: "ready",
+      proof: { label: "Running at agiza.odhis.co.ke", url: "https://agiza.odhis.co.ke" },
       price: null,
-      palette: ["#2a0f24", "#e7a6b8", "#f6e7d8"],
-      glyph: "✦",
-      story: "A public site plus a private office for an insurance agent. Clients, meetings, quotes and to-dos live behind her own login, and her phone reminds her before every meeting.",
-      cast: ["HTML, CSS, JavaScript", "Supabase (database, sign-in, private files)", "Phone notifications", "GitHub Pages"],
+      accent: "#c58bff",
       features: [
-        "Elegant public page that hands leads to WhatsApp",
+        "A public page that sends leads to your WhatsApp",
         "Private office: clients, meetings, quotes, to-dos",
-        "Quote PDFs stored privately, owner-only access",
-        "Phone reminders before meetings",
-        "Built-in assistant for everyday questions"
+        "Phone reminders before every meeting",
+        "Quote PDFs stored privately, only you can open them"
       ]
     },
     {
-      id: "venuecheck",
-      title: "VenueCheck",
-      tagline: "Every free room on campus, right now.",
-      genre: "Campus",
-      studio: "vintage",
+      id: "campus",
+      name: "Campus Board",
+      line: "Every free room on campus, right now.",
+      for: "Universities, colleges and student bodies",
       status: "build",
-      link: null,
+      proof: { label: "Being built for Chiromo campus", url: null },
       price: null,
-      palette: ["#0c1a33", "#5aa9ff", "#ffe08a"],
-      glyph: "■",
-      story: "A live board for Chiromo campus that reads the official timetable and shows which lecture rooms are empty this hour, so students stop wandering corridors looking for a place to read.",
-      cast: ["Python", "FastAPI + SQLite", "Timetable importer", "Campus email sign-in"],
+      accent: "#5ea8ff",
       features: [
-        "Imports the real timetable",
-        "Shows free rooms by the hour",
-        "Phone-friendly board for students",
-        "Works for any campus with a timetable"
+        "Reads the official timetable",
+        "Shows free lecture rooms hour by hour",
+        "Made for phones, works for any campus"
       ]
     },
     {
-      id: "jarvis",
-      title: "Jarvis",
-      tagline: "A laptop that learns how you work.",
-      genre: "Assistants",
-      studio: "vintage",
-      status: "private",
-      link: null,
-      price: null,
-      palette: ["#120f0b", "#e8b04a", "#fff1cf"],
-      glyph: "●",
-      story: "A personal assistant that lives on the laptop. It runs everyday jobs and learns from past conversations, and it only reports what it actually measured.",
-      cast: ["Python", "Runs locally on Linux", "Learns from conversation history"],
-      features: [
-        "Runs on your own machine",
-        "Learns from your past conversations",
-        "Reports only what it measured, never guesses",
-        "Built around one person's real routine"
-      ]
-    },
-    {
-      id: "birthday-bot",
-      title: "Birthday Bot",
-      tagline: "Never miss a birthday again.",
-      genre: "Bots",
-      studio: "vintage",
+      id: "remember",
+      name: "Remember",
+      line: "WhatsApp wishes and reminders that send themselves.",
+      for: "Businesses that want customers to come back",
       status: "build",
-      link: null,
+      proof: { label: "Uses WhatsApp's official business service", url: null },
       price: null,
-      palette: ["#2b1404", "#ff9a3c", "#fff0b3"],
-      glyph: "✺",
-      story: "Sends personal WhatsApp birthday wishes on the day, through WhatsApp's official business service, so the account never gets banned.",
-      cast: ["Python", "FastAPI + SQLite", "WhatsApp Cloud API (official)", "Docker"],
+      accent: "#ffb020",
       features: [
-        "Uses the official WhatsApp Cloud service",
-        "A birthday list you keep yourself",
-        "Personal wishes sent on the day"
+        "Birthday wishes sent on the day",
+        "Official WhatsApp Cloud service, so no bans",
+        "A customer list you keep yourself"
       ]
     }
   ]

@@ -1,15 +1,28 @@
 {
   "name": "Vintage Tech",
   "short_name": "Vintage Tech",
-  "description": "A platform full of platforms. Real platforms, built in Nairobi.",
+  "description": "Software that runs real businesses. Made in Nairobi.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#0b0907",
-  "theme_color": "#0b0907",
+  "background_color": "#f5f4ef",
+  "theme_color": "#0d0e10",
   "icons": [
-    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" },
-    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ]
 }

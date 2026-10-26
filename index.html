@@ -3,204 +3,135 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Vintage Tech — A Platform Full of Platforms</title>
-  <meta name="description" content="Vintage Tech is a Nairobi marketplace of ready-built platforms: shops, offices, finance systems, campus tools, assistants and bots. Pick one, make it yours.">
-  <meta name="theme-color" content="#0b0907">
-  <meta property="og:title" content="Vintage Tech — A Platform Full of Platforms">
-  <meta property="og:description" content="Now showing: real platforms, built in Nairobi. Pick one, make it yours.">
+  <title>Vintage Tech — Software that runs real businesses</title>
+  <meta name="description" content="Vintage Tech is a Nairobi software studio. Ready-built platforms (online shops, agent offices, campus boards, WhatsApp reminders) and Vintage Air, the workshop we build them in.">
+  <meta name="theme-color" content="#f5f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Vintage Tech — Software that runs real businesses">
+  <meta property="og:description" content="Ready-built platforms from a Nairobi studio. Pick one, make it yours.">
   <meta property="og:url" content="https://vintage.odhis.co.ke/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://vintage.odhis.co.ke/assets/og.jpg?v=2">
+  <meta property="og:image" content="https://vintage.odhis.co.ke/assets/og.jpg?v=3">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="assets/icon-192.png">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Courier+Prime:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css?v=2">
 </head>
-<body class="intro-on">
-
-  <!-- ACT 0 · the film leader -->
-  <div class="leader" id="leader" aria-hidden="true">
-    <div class="leader-frame">
-      <div class="leader-sweep"></div>
-      <div class="leader-cross"></div>
-      <div class="leader-ring"></div>
-      <div class="leader-num" id="leaderNum">3</div>
-    </div>
-    <div class="leader-card" id="leaderCard">
-      <p class="lc-small">Vintage Tech</p>
-      <p class="lc-presents">presents</p>
-    </div>
-    <button class="leader-skip" id="leaderSkip" type="button">Skip intro ›</button>
-  </div>
-
-  <!-- the projector's own texture, over everything -->
-  <div class="grain" aria-hidden="true"></div>
-  <div class="scratches" aria-hidden="true"><i></i><i></i><i></i></div>
-  <div class="vignette" aria-hidden="true"></div>
-
+<body>
   <header class="nav" id="nav">
-    <a class="brand" href="#top" aria-label="Vintage Tech home">
-      <span class="reel" aria-hidden="true"></span>
-      <span class="brand-word">Vintage<b>Tech</b></span>
-    </a>
-    <nav class="nav-links" aria-label="Sections">
-      <a href="#showing">Now Showing</a>
-      <a href="#how">How it works</a>
-      <a href="#studios">Sell here</a>
-    </nav>
-    <button class="sound" id="sound" type="button" aria-pressed="false" aria-label="Projector sound off. Turn on">
-      <span class="sound-ico" aria-hidden="true"></span>
-    </button>
-    <a class="btn btn-ticket nav-cta" href="#showing">Get tickets</a>
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="Vintage Tech home">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path class="v" d="M14 16 L32 50 L50 16"/><circle class="d" cx="50" cy="50" r="5"/></svg>
+        <b>vintage <span>tech</span></b>
+      </a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#products">Products</a>
+        <a href="air/">Vintage Air</a>
+        <a href="#how">How buying works</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="#contact">Get a quote</a>
+    </div>
   </header>
 
-  <main id="top">
-
-    <!-- HERO -->
+  <main>
     <section class="hero">
-      <div class="bars bar-top" aria-hidden="true"></div>
-      <div class="bars bar-bottom" aria-hidden="true"></div>
-      <div class="beam" aria-hidden="true"></div>
-      <div class="dust" aria-hidden="true"></div>
-
-      <div class="hero-inner">
-        <p class="eyebrow typed">Nairobi · Est. 2026 · Reel 01</p>
-        <h1 class="hero-title">
-          <span class="ht-a">A platform</span>
-          <span class="ht-b">full of</span>
-          <span class="ht-c">platforms<span class="dot">.</span></span>
-        </h1>
-        <p class="hero-sub">Shops that deliver. Offices in your pocket. Bots that remember. Every platform here is real, running, and ready to be <em>yours</em>.</p>
-        <div class="hero-cta">
-          <a class="btn btn-ticket" href="#showing">See what's showing</a>
-          <a class="btn btn-ghost" href="#studios">Sell your platform</a>
+      <div class="wrap">
+        <div>
+          <p class="kicker">Software studio · Nairobi, Kenya</p>
+          <h1>Software that runs <span class="serif">real</span> <span class="hl">businesses.</span></h1>
+          <p class="lede">Vintage Tech builds ready-made platforms: online shops that deliver, private offices for agents, campus boards and WhatsApp bots. Pick one, and we fit it to how your business already works.</p>
+          <div class="cta">
+            <a class="btn" href="#products">See the products <span class="arr">→</span></a>
+            <a class="btn line" href="air/">Meet Vintage Air</a>
+          </div>
+          <p class="hero-meta"><span><b id="liveCount">2</b> products live for real clients</span><span><b>M-PESA</b> ready</span><span>Built in <b>Nairobi</b></span></p>
         </div>
-      </div>
-
-      <!-- the marquee board -->
-      <div class="marquee" aria-label="Now showing">
-        <div class="marquee-bulbs" aria-hidden="true"></div>
-        <p class="marquee-label">Now showing</p>
-        <p class="marquee-titles" id="marqueeTitles"></p>
-        <p class="marquee-count" id="marqueeCount"></p>
+        <div class="stack" aria-hidden="true" id="stack"></div>
       </div>
     </section>
 
-    <!-- FILM STRIP -->
-    <div class="strip" aria-hidden="true">
-      <div class="strip-track" id="stripTrack"></div>
+    <div class="proof">
+      <div class="wrap" id="proof"><span>Running right now:</span></div>
     </div>
 
-    <!-- NOW SHOWING -->
-    <section class="showing" id="showing">
-      <div class="sec-head">
-        <p class="eyebrow">The programme</p>
-        <h2 class="sec-title">Now <em>Showing</em></h2>
-        <p class="sec-sub">Tap a poster to watch the trailer. Every listing is a platform that's really been built, not a mock-up.</p>
-      </div>
-
-      <div class="filters" role="group" aria-label="Filter by genre" id="filters"></div>
-
-      <div class="posters" id="posters"></div>
-      <p class="empty" id="empty" hidden>Nothing showing in this genre yet. Coming soon.</p>
-    </section>
-
-    <!-- THREE ACTS -->
-    <section class="acts" id="how">
-      <div class="sec-head">
-        <p class="eyebrow">How it works</p>
-        <h2 class="sec-title">A story in <em>three acts</em></h2>
-      </div>
-      <ol class="act-list">
-        <li class="act" data-n="1">
-          <span class="act-no">Act I</span>
-          <h3>Pick your picture</h3>
-          <p>Browse the platforms on show. Open a demo where there's one, read what it does, see who built it.</p>
-        </li>
-        <li class="act" data-n="2">
-          <span class="act-no">Act II</span>
-          <h3>Make it yours</h3>
-          <p>Ask for a quote. The studio puts your name, colours, prices and rules on it, so it works the way your business already works.</p>
-        </li>
-        <li class="act" data-n="3">
-          <span class="act-no">Act III</span>
-          <h3>Premiere</h3>
-          <p>It goes live on your own address. The studio stays on for fixes and new features, so it keeps growing after launch.</p>
-        </li>
-      </ol>
-    </section>
-
-    <!-- STUDIOS / SELLERS -->
-    <section class="studios" id="studios">
-      <div class="studio-card">
-        <div class="studio-left">
-          <p class="eyebrow">For builders</p>
-          <h2 class="sec-title">Your platform belongs <em>on this screen.</em></h2>
-          <p>Built something real? Vintage Tech is opening its screens to other studios. Every studio is checked before it goes up, and so is every platform it lists. If it isn't real and working, it doesn't get shown.</p>
-          <ul class="checks">
-            <li>It's live, or has a working demo</li>
-            <li>You built it, or have the right to sell it</li>
-            <li>You'll support it after the sale</li>
-          </ul>
+    <section class="sec" id="products">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <div><p class="kicker">The catalogue</p><h2>Products you can own.</h2></div>
+          <p><b>Ready</b> means it already runs for a real client, so yours is mostly setup, not building from scratch. <b>In build</b> means it's being made now. Every price is a quote, because every business is different.</p>
         </div>
-        <form class="studio-form" id="studioForm" novalidate>
-          <p class="form-title">Studio application</p>
-          <label>Studio or your name<input name="studio" required maxlength="80" autocomplete="organization"></label>
-          <label>Platform name<input name="platform" required maxlength="80"></label>
-          <label>Link to a demo<input name="demo" type="url" maxlength="200" placeholder="https://"></label>
-          <label>What does it do?<textarea name="about" rows="3" maxlength="600" required></textarea></label>
-          <button class="btn btn-ticket" type="submit">Send application</button>
-          <p class="form-note" id="formNote" role="status"></p>
-        </form>
+        <div class="products" id="productGrid"></div>
       </div>
-      <p class="studio-roll" id="studioRoll"></p>
+    </section>
+
+    <section class="airblock rv" id="air">
+      <div class="inner">
+        <div>
+          <p class="kicker">Flagship · Vintage Air</p>
+          <h2>The workshop where we <span class="a">build it all.</span></h2>
+          <p>Vintage Air is our own workspace: sealed Ubuntu and Kali boxes, real terminals in the browser, save points and a memory guard, all running on an ordinary 8 GB laptop with nothing installed on the host.</p>
+          <ul class="ticks">
+            <li>Test anything without touching your main system</li>
+            <li>Rewind any box to a save point in seconds</li>
+            <li>Built for everyday laptops and slow, expensive data</li>
+          </ul>
+          <a class="btn lime" href="air/">Explore Vintage Air <span class="arr">→</span></a>
+        </div>
+        <div data-mock></div>
+      </div>
+    </section>
+
+    <section class="sec" id="how">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <div><p class="kicker">How buying works</p><h2>Three steps. <span class="serif">No surprises.</span></h2></div>
+          <p>You talk to the person who builds it. You own your address and your data, and support continues after launch.</p>
+        </div>
+        <ol class="steps rv">
+          <li class="step"><h3>Pick a product</h3><p>Open a live demo where there is one, and tell us what your business does today.</p></li>
+          <li class="step"><h3>We make it yours</h3><p>Your name, colours, prices and rules. It fits how you already work, so nobody has to change for the software.</p></li>
+          <li class="step"><h3>Go live</h3><p>On your own address, with M-PESA where you need it. Fixes and new features continue after launch.</p></li>
+        </ol>
+        <div class="tiers rv">
+          <div class="tier"><b>Starter</b><span>The product as it is, with your branding. Fastest and cheapest.</span></div>
+          <div class="tier"><b>Custom</b><span>Shaped around your workflow, fees and team.</span></div>
+          <div class="tier"><b>Full build</b><span>Something new, built from our engines for you alone.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="contact" style="padding-top:0">
+      <div class="wrap">
+        <div class="contact rv">
+          <div>
+            <p class="kicker" style="color:var(--lime)">Contact</p>
+            <h2>Tell us about your business.</h2>
+            <p>One conversation is enough to know which product fits and what it would cost.</p>
+            <div class="cta" id="contactCta"></div>
+            <p class="note" id="contactNote"></p>
+          </div>
+          <div class="box" id="contactBox"></div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <!-- CREDITS -->
-  <footer class="credits" id="credits">
-    <div class="credits-roll" id="creditsRoll"></div>
-    <div class="the-end">
-      <p class="te-word">The End</p>
-      <p class="te-small">…of the beginning. More platforms coming soon.</p>
-      <p class="te-meta">© <span id="year"></span> Vintage Tech · Nairobi, Kenya · <a href="privacy.html">Privacy</a></p>
+  <footer class="foot">
+    <div class="wrap">
+      <a class="logo" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><path class="v" d="M14 16 L32 50 L50 16"/><circle class="d" cx="50" cy="50" r="5"/></svg><b>vintage <span>tech</span></b></a>
+      <a href="#products">Products</a><a href="air/">Vintage Air</a><a href="privacy.html">Privacy</a>
+      <span>© <span id="year"></span> Vintage Tech · Nairobi</span>
     </div>
   </footer>
 
-  <!-- TRAILER -->
-  <dialog class="trailer" id="trailer" aria-labelledby="trTitle">
-    <div class="tr-screen" id="trScreen">
-      <button class="tr-close" id="trClose" type="button" aria-label="Close">×</button>
-      <div class="tr-poster" id="trPoster"></div>
-      <div class="tr-body">
-        <p class="eyebrow" id="trMeta"></p>
-        <h3 id="trTitle"></h3>
-        <p class="tr-tag" id="trTag"></p>
-        <p class="tr-story" id="trStory"></p>
-        <ul class="tr-features" id="trFeatures"></ul>
-        <div class="tr-cast">
-          <p class="tt-label">Cast &amp; crew</p>
-          <ul id="trCast"></ul>
-        </div>
-        <div class="tr-ticket">
-          <div>
-            <p class="tt-label">Admission</p>
-            <p class="tt-price" id="trPrice"></p>
-          </div>
-          <div class="tr-actions" id="trActions"></div>
-        </div>
-        <p class="form-note" id="trNote" role="status"></p>
-      </div>
-    </div>
-  </dialog>
-
-  <script src="assets/data.js?v=3"></script>
-  <script src="assets/app.js?v=2"></script>
+  <script src="assets/data.js?v=4"></script>
+  <script src="assets/site.js?v=2"></script>
 </body>
 </html>
