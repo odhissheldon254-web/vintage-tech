@@ -18,7 +18,7 @@ window.VT = {
     { id: "vintage", name: "Vintage Tech", city: "Nairobi", verified: true }
   ],
 
-  genres: ["Commerce", "Business", "Finance", "Campus", "Assistants", "Bots"],
+  genres: ["Commerce", "Business", "Campus", "Assistants", "Bots"],
 
   platforms: [
     {
@@ -61,27 +61,6 @@ window.VT = {
         "Quote PDFs stored privately, owner-only access",
         "Phone reminders before meetings",
         "Built-in assistant for everyday questions"
-      ]
-    },
-    {
-      id: "pfs",
-      title: "Phone Financing",
-      tagline: "Phones on instalments. M-PESA does the rest.",
-      genre: "Finance",
-      studio: "vintage",
-      status: "private",
-      link: null,
-      price: null,
-      palette: ["#06231d", "#38d39f", "#e9ffd9"],
-      glyph: "▲",
-      story: "A full phone-financing system running for a Nairobi business. Managers add phones, agents sell them on instalments, customers pay by M-PESA, and the system keeps the books, pays commission and follows up on late loans.",
-      cast: ["Java + Spring Boot", "PostgreSQL", "Apache Fineract (loan ledger)", "M-PESA Daraja API", "Docker on AWS"],
-      features: [
-        "Loans with instalment plans and interest per phone",
-        "M-PESA payments in, commission payouts out",
-        "Agents, managers and a full ledger",
-        "Overdue follow-up, with device locking in testing",
-        "Runs on its own cloud server with backups"
       ]
     },
     {
