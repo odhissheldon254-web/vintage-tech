@@ -6,7 +6,6 @@
    - status: "ready" = the engine already runs for a real client · "build" = being made · "soon" = planned
    - price: null shows "Quote". Set a number (KES) only when Sheldon decides it.
    - contact: while both are null the box office is closed and buttons say so.
-   - Phone Financing (Mifos) is deliberately NOT listed while Sheldon works on it.
 */
 window.VT = {
   contact: {
