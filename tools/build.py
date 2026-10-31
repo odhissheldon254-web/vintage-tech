@@ -197,13 +197,15 @@ def ld_org():
         "@graph": [
             {"@type": "Organization", "@id": ORG_ID, "name": "Vintage Tech", "url": SITE + "/",
              "logo": {"@type": "ImageObject", "url": f"{SITE}/assets/icon-512.png", "width": 512, "height": 512},
+             "image": f"{SITE}/assets/og.jpg",
              "description": "A Nairobi software studio building ready-made platforms for real businesses: online shops with delivery, agent offices, campus boards and WhatsApp bots.",
              "email": EMAIL, "telephone": "+" + WA,
              "address": {"@type": "PostalAddress", "addressLocality": "Nairobi", "addressCountry": "KE"},
              "areaServed": {"@type": "Country", "name": "Kenya"},
              "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "telephone": "+" + WA, "email": EMAIL,
                               "areaServed": "KE", "availableLanguage": ["English", "Swahili"]},
-             "makesOffer": [{"@type": "Offer", "itemOffered": {"@id": f"{SITE}/products/{p['id']}/#service"}} for p in DATA["products"]]},
+             "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "@id": f"{SITE}/products/{p['id']}/#service",
+                                                               "name": p["name"], "url": f"{SITE}/products/{p['id']}/"}} for p in DATA["products"]]},
             {"@type": "WebSite", "@id": f"{SITE}/#website", "url": SITE + "/", "name": "Vintage Tech", "publisher": {"@id": ORG_ID}, "inLanguage": "en-KE"},
         ],
     }
