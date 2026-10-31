@@ -8,7 +8,8 @@ const p = require(path.join(process.argv[2], 'puppeteer-core'));
   for (const f of fs.readdirSync(path.join(__dirname, 'og'))) {
     await pg.goto('file://' + path.join(__dirname, 'og', f), { waitUntil: 'load', timeout: 90000 });
     await pg.evaluate(() => document.fonts.ready);
-    const out = path.join(__dirname, '..', 'assets', 'og-' + f.replace('.html', '.jpg'));
+    const name = f === 'og.html' ? 'og.jpg' : 'og-' + f.replace('.html', '.jpg');  // og.html is the shop's own card
+    const out = path.join(__dirname, '..', 'assets', name);
     await pg.screenshot({ path: out, type: 'jpeg', quality: 86 }); console.log('rendered', path.basename(out));
   }
   await b.close();

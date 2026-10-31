@@ -1,6 +1,6 @@
 # Vintage Tech
 
-The shop window for Vintage Tech, a Nairobi software studio. Live at https://vintage.odhis.co.ke
+The shop window for Vintage Tech, a Nairobi software studio. Live at https://odhis.co.ke
 
 ## Pages
 | Path | What |

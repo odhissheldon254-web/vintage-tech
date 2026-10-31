@@ -12,20 +12,55 @@
       "for": "Shops, thrift sellers, kitchens and anyone selling in Nairobi",
       "status": "ready",
       "accent": "#ff5a8a",
-      "proof": { "label": "sosick.odhis.co.ke", "url": "https://sosick.odhis.co.ke", "note": "Running for a Nairobi thrift brand" },
+      "proof": {
+        "label": "sosick.odhis.co.ke",
+        "url": "https://sosick.odhis.co.ke",
+        "note": "Running for a Nairobi thrift brand",
+        "button": "See it live ↗"
+      },
       "features": [
-        ["Pickup and delivery orders", "Customers choose pickup or delivery and order straight from your site, with no app to install."],
-        ["Verified sellers", "Sellers are listed only after you check them. Strangers can't sign themselves up, so the badge means something."],
-        ["Private admin", "Orders, team, charges and sellers in one place, behind your own sign-in."],
-        ["Fees you control", "Delivery and extra fees switch on and off from the admin. Nothing is hard-coded."],
-        ["A built-in helper", "A friendly helper answers common questions and walks customers through ordering. It follows set rules, not guesswork."],
-        ["Private by design", "Customer data is locked to you and your team, with a privacy page written for Kenya's Data Protection Act."]
+        [
+          "Pickup and delivery orders",
+          "Customers choose pickup or delivery and order straight from your site, with no app to install."
+        ],
+        [
+          "Verified sellers",
+          "Sellers are listed only after you check them. Strangers can't sign themselves up, so the badge means something."
+        ],
+        [
+          "Private admin",
+          "Orders, team, charges and sellers in one place, behind your own sign-in."
+        ],
+        [
+          "Fees you control",
+          "Delivery and extra fees switch on and off from the admin. Nothing is hard-coded."
+        ],
+        [
+          "A built-in helper",
+          "A friendly helper answers common questions and walks customers through ordering. It follows set rules, not guesswork."
+        ],
+        [
+          "Private by design",
+          "Customer data is locked to you and your team, with a privacy page written for Kenya's Data Protection Act."
+        ]
       ],
       "faq": [
-        ["Do I need my own web address?", "No. You can start on a free address and move to your own .co.ke later. A domain usually costs around a thousand to fifteen hundred shillings a year."],
-        ["Can sellers sign up by themselves?", "No, on purpose. You add each seller after checking them, which is what keeps customers trusting the badge."],
-        ["Can customers pay with M-PESA?", "It doesn't take payments today. Orders are confirmed with you directly. M-PESA checkout can be added as a custom build."],
-        ["What does it cost?", "It depends on what you need, so every price is a quote. Message us on WhatsApp and you'll get a clear number before any work starts."]
+        [
+          "Do I need my own web address?",
+          "No. You can start on a free address and move to your own .co.ke later. A domain usually costs around a thousand to fifteen hundred shillings a year."
+        ],
+        [
+          "Can sellers sign up by themselves?",
+          "No, on purpose. You add each seller after checking them, which is what keeps customers trusting the badge."
+        ],
+        [
+          "Can customers pay with M-PESA?",
+          "It doesn't take payments today. Orders are confirmed with you directly. M-PESA checkout can be added as a custom build."
+        ],
+        [
+          "What does it cost?",
+          "It depends on what you need, so every price is a quote. Message us on WhatsApp and you'll get a clear number before any work starts."
+        ]
       ]
     },
     {
@@ -36,20 +71,55 @@
       "for": "Insurance agents, property agents, SACCO and sales reps",
       "status": "ready",
       "accent": "#c58bff",
-      "proof": { "label": "agiza.odhis.co.ke", "url": "https://agiza.odhis.co.ke", "note": "Running for a Nairobi insurance agent" },
+      "proof": {
+        "label": "Office demo · sample data",
+        "url": "https://agiza.odhis.co.ke/designs/office-v2/",
+        "note": "The real office, running on sample data",
+        "button": "Try the office ↗"
+      },
       "features": [
-        ["A page that brings leads", "A clean public page with quick answers that hand visitors straight to your WhatsApp."],
-        ["Your private office", "Clients, meetings, quotes and to-dos behind your own email and password."],
-        ["Reminders on your phone", "A notification, with its own sound, before every meeting and to-do."],
-        ["Quotes kept safe", "Quote PDFs are stored privately. Only you can open them."],
-        ["An assistant you can talk to", "Say or type “meeting with Wanjiru kesho saa nne” and it fills the form. It always confirms before saving."],
-        ["Installs like an app", "It sits on your home screen and opens like any other app."]
+        [
+          "A page that brings leads",
+          "A clean public page with quick answers that hand visitors straight to your WhatsApp."
+        ],
+        [
+          "Your private office",
+          "Clients, meetings, quotes and to-dos behind your own email and password."
+        ],
+        [
+          "Reminders on your phone",
+          "A notification, with its own sound, before every meeting and to-do."
+        ],
+        [
+          "Quotes kept safe",
+          "Quote PDFs are stored privately. Only you can open them."
+        ],
+        [
+          "An assistant you can talk to",
+          "Say or type “meeting with Wanjiru kesho saa nne” and it fills the form. It always confirms before saving."
+        ],
+        [
+          "Installs like an app",
+          "It sits on your home screen and opens like any other app."
+        ]
       ],
       "faq": [
-        ["Is my client list private?", "Yes. Your data is locked to your account, and nobody else can read it, not even other users of the product."],
-        ["Does it work on my phone?", "Yes. It's made for phones first, and reminders arrive as phone notifications."],
-        ["Can my whole team use it?", "Today it's built for one person. Team access, with shared clients and roles, is a custom build."],
-        ["Does the assistant use AI?", "No. It follows clear rules, understands some Swahili, and never saves anything without showing you first."]
+        [
+          "Is my client list private?",
+          "Yes. Your data is locked to your account, and nobody else can read it, not even other users of the product."
+        ],
+        [
+          "Does it work on my phone?",
+          "Yes. It's made for phones first, and reminders arrive as phone notifications."
+        ],
+        [
+          "Can my whole team use it?",
+          "Today it's built for one person. Team access, with shared clients and roles, is a custom build."
+        ],
+        [
+          "Does the assistant use AI?",
+          "No. It follows clear rules, understands some Swahili, and never saves anything without showing you first."
+        ]
       ]
     },
     {
@@ -60,17 +130,42 @@
       "for": "Universities, colleges and student bodies",
       "status": "build",
       "accent": "#5ea8ff",
-      "proof": { "label": "Being built for Chiromo campus", "url": null, "note": "72 rooms and 630 classes already loaded from the timetable" },
+      "proof": {
+        "label": "Being built for Chiromo campus",
+        "url": null,
+        "note": "72 rooms and 630 classes already loaded from the timetable"
+      },
       "features": [
-        ["Reads the real timetable", "Classes are imported from the official timetable files, not typed in by hand."],
-        ["Free rooms by the hour", "See at a glance which rooms are empty now and later today."],
-        ["Check in to claim a room", "Lecturers claim a free room so two classes don't land in the same place."],
-        ["Campus sign-in", "Only people with a university email can check in."]
+        [
+          "Reads the real timetable",
+          "Classes are imported from the official timetable files, not typed in by hand."
+        ],
+        [
+          "Free rooms by the hour",
+          "See at a glance which rooms are empty now and later today."
+        ],
+        [
+          "Check in to claim a room",
+          "Lecturers claim a free room so two classes don't land in the same place."
+        ],
+        [
+          "Campus sign-in",
+          "Only people with a university email can check in."
+        ]
       ],
       "faq": [
-        ["When will it be ready?", "It's being built now for Chiromo campus. Join the waitlist and you'll hear the moment it opens."],
-        ["Does it work for other campuses?", "Yes. Any campus that publishes a timetable can use it. We set up the import for yours."],
-        ["Do we need the university's permission?", "It reads the published timetable. For a full launch, we work with the department."]
+        [
+          "When will it be ready?",
+          "It's being built now for Chiromo campus. Join the waitlist and you'll hear the moment it opens."
+        ],
+        [
+          "Does it work for other campuses?",
+          "Yes. Any campus that publishes a timetable can use it. We set up the import for yours."
+        ],
+        [
+          "Do we need the university's permission?",
+          "It reads the published timetable. For a full launch, we work with the department."
+        ]
       ]
     },
     {
@@ -81,17 +176,42 @@
       "for": "Salons, shops, gyms and any business that wants customers to come back",
       "status": "build",
       "accent": "#ffb020",
-      "proof": { "label": "Uses WhatsApp's official business service", "url": null, "note": "Built and tested, waiting on WhatsApp business setup" },
+      "proof": {
+        "label": "Uses WhatsApp's official business service",
+        "url": null,
+        "note": "Built and tested, waiting on WhatsApp business setup"
+      },
       "features": [
-        ["Wishes on the day", "Every morning it sends the day's birthday wishes, once per person per year."],
-        ["Official WhatsApp", "It uses WhatsApp's own business service, not a hack, so your number stays safe."],
-        ["Your own list", "A simple private page where you add and edit customers."],
-        ["Retries if it fails", "If a message doesn't go through, it tries again before giving up."]
+        [
+          "Wishes on the day",
+          "Every morning it sends the day's birthday wishes, once per person per year."
+        ],
+        [
+          "Official WhatsApp",
+          "It uses WhatsApp's own business service, not a hack, so your number stays safe."
+        ],
+        [
+          "Your own list",
+          "A simple private page where you add and edit customers."
+        ],
+        [
+          "Retries if it fails",
+          "If a message doesn't go through, it tries again before giving up."
+        ]
       ],
       "faq": [
-        ["Will my WhatsApp get banned?", "No. It uses WhatsApp's official business service, which exists for exactly this. It needs a WhatsApp Business setup, and we help with that."],
-        ["Does each message cost money?", "Yes, a few shillings per message, charged by WhatsApp (Meta), not by us. We show you the current rate before you start."],
-        ["Can it message anyone?", "Only customers who agreed to hear from you. That's WhatsApp's rule, and it's also good manners."]
+        [
+          "Will my WhatsApp get banned?",
+          "No. It uses WhatsApp's official business service, which exists for exactly this. It needs a WhatsApp Business setup, and we help with that."
+        ],
+        [
+          "Does each message cost money?",
+          "Yes, a few shillings per message, charged by WhatsApp (Meta), not by us. We show you the current rate before you start."
+        ],
+        [
+          "Can it message anyone?",
+          "Only customers who agreed to hear from you. That's WhatsApp's rule, and it's also good manners."
+        ]
       ]
     }
   ]
