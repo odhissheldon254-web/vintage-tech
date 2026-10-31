@@ -14,8 +14,8 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parent.parent
 DATA = json.loads((ROOT / "tools" / "products.json").read_text())
 SITE = "https://odhis.co.ke"
-V = {"css": 4, "js": 5}
-PAGES = ["", "products/", "how/", "about/", "air/"]  # + one per product, for the sitemap  # bump when site.css / site.js change, so phones fetch the new files
+V = {"css": 4, "js": 6}
+PAGES = ["", "products/", "how/", "about/"]  # + one per product, for the sitemap  # bump when site.css / site.js change, so phones fetch the new files
 STATUS = {"ready": "Ready", "build": "In build", "soon": "Coming soon"}
 WA = DATA["contact"]["whatsapp"]
 EMAIL = DATA["contact"]["email"]
@@ -43,7 +43,7 @@ def page(path, title, desc, body, active="", og="og.jpg", air=False, extra_head=
     up = "../" * depth if depth else ""
     canon = SITE + "/" + path.lstrip("/").replace("index.html", "")
     theme = "#0a0b0d" if air else "#f5f4ef"
-    links = [("products/", "Products", "products"), ("air/", "Vintage Air", "air"), ("how/", "How it works", "how"), ("about/", "About", "about")]
+    links = [("products/", "Products", "products"), ("how/", "How it works", "how"), ("about/", "About", "about")]
     nav = "".join(f'<a href="{up}{h}"{" aria-current=\"page\"" if k == active else ""}>{t}</a>' for h, t, k in links)
     brand = '<b>vintage <span>air</span></b>' if air else '<b>vintage <span>tech</span></b>'
     return f"""<!doctype html>
@@ -59,7 +59,7 @@ def page(path, title, desc, body, active="", og="og.jpg", air=False, extra_head=
   <meta property="og:description" content="{e(desc)}">
   <meta property="og:url" content="{canon}">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="{SITE}/assets/{og}?v=5">
+  <meta property="og:image" content="{SITE}/assets/{og}?v=6">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -89,7 +89,7 @@ def page(path, title, desc, body, active="", og="og.jpg", air=False, extra_head=
   <footer class="foot">
     <div class="wrap">
       <a class="logo" href="{up or './'}">{LOGO}<b>vintage <span>tech</span></b></a>
-      <a href="{up}products/">Products</a><a href="{up}air/">Vintage Air</a><a href="{up}how/">How it works</a><a href="{up}about/">About</a><a href="{up}privacy.html">Privacy</a>
+      <a href="{up}products/">Products</a><a href="{up}how/">How it works</a><a href="{up}about/">About</a><a href="{up}privacy.html">Privacy</a>
       <span>© <span data-year>2026</span> Vintage Tech · Nairobi</span>
     </div>
   </footer>
@@ -173,13 +173,10 @@ def prod_card(p, up, big=False):
 
 
 def stack_html():
-    p = DATA["products"][:3]
-    cls = ["c1", "c2", "c3"]
+    p = DATA["products"][:4]
+    cls = ["c1", "c2", "c3", "air"]
     cards = "".join(f'<div class="card {c}"><i style="background:{x["accent"]}"></i><b>{e(x["name"])}</b><span>{e(x["line"])}</span><em>{STATUS[x["status"]]}</em></div>' for x, c in zip(p, cls))
-    return cards + '<div class="card air"><i style="background:#c8ff2e"></i><b>Vintage Air</b><span>The workshop we build it all in.</span><em>Flagship</em></div>'
-
-
-AIR_MOCK = '<div data-mock></div>'
+    return cards
 
 
 
@@ -247,7 +244,7 @@ def home():
           <p class="lede">Vintage Tech builds ready-made platforms: online shops that deliver, private offices for agents, campus boards and WhatsApp bots. Pick one, and we fit it to how your business already works.</p>
           <div class="cta">
             <a class="btn" href="products/">See the products <span class="arr">→</span></a>
-            <a class="btn line" href="air/">Meet Vintage Air</a>
+            <a class="btn line" href="how/">How buying works</a>
           </div>
           <p class="hero-meta"><span><b>{len(live)}</b> products live for real clients</span><span><b>WhatsApp</b>-first</span><span>Built in <b>Nairobi</b></span></p>
         </div>
@@ -265,18 +262,6 @@ def home():
         <p class="center rv"><a class="btn line" href="products/">Compare all products <span class="arr">→</span></a></p>
       </div>
     </section>
-    <section class="airblock rv">
-      <div class="inner">
-        <div>
-          <p class="kicker">Flagship · Vintage Air</p>
-          <h2>The workshop where we <span class="a">build it all.</span></h2>
-          <p>Vintage Air is our own workspace: sealed Ubuntu and Kali boxes, real terminals in the browser, save points and a memory guard, all on an ordinary 8 GB laptop.</p>
-          <ul class="ticks"><li>Test anything without touching your main system</li><li>Rewind any box to a save point in seconds</li><li>Built for everyday laptops and expensive data</li></ul>
-          <a class="btn lime" href="air/">Explore Vintage Air <span class="arr">→</span></a>
-        </div>
-        {AIR_MOCK}
-      </div>
-    </section>
     <section class="sec">
       <div class="wrap">
         <div class="sec-head rv">
@@ -287,7 +272,7 @@ def home():
       </div>
     </section>"""
     return page("index.html", "Vintage Tech — Software that runs real businesses",
-                "Vintage Tech is a Nairobi software studio: ready-built online shops, agent offices, campus boards and WhatsApp bots, plus Vintage Air, the workshop we build them in.", body,
+                "Vintage Tech is a Nairobi software studio: ready-built online shops, agent offices, campus boards and WhatsApp bots for real businesses.", body,
                 extra_head=ld(ld_org()))
 
 
@@ -431,18 +416,11 @@ def about_page():
     <section class="sec tight">
       <div class="wrap two">
         <div class="rv"><p class="kicker">How we build</p><h2 class="h2">In our own workshop.</h2></div>
-        <div class="rv"><p class="lede-sm">Everything is made in <a href="../air/">Vintage Air</a>, the workspace we built for ourselves: sealed test systems, save points and a calm screen for focus. It lets us try things safely and ship faster, on an ordinary laptop.</p>
+        <div class="rv"><p class="lede-sm">Everything is made and tested in a workspace we built for ourselves: sealed test systems, save points and a calm screen for focus. It lets us try things safely and ship faster, on an ordinary laptop.</p>
         <p class="lede-sm">See what we've shipped: <a href="https://sosick.odhis.co.ke" target="_blank" rel="noopener">Sosick ↗</a> and <a href="https://agiza.odhis.co.ke" target="_blank" rel="noopener">Agiza ↗</a>, both live in Nairobi.</p></div>
       </div>
     </section>"""
     return page("about/index.html", "About — Vintage Tech", "Vintage Tech is a Nairobi software studio building phone-first, WhatsApp-first platforms for real businesses.", body, active="about", extra_head=ld(ld_crumb('About', 'about/')))
-
-
-def air_page():
-    src = (ROOT / "tools" / "air-body.html").read_text()
-    return page("air/index.html", "Vintage Air — The workshop for builders",
-                "Vintage Air by Vintage Tech: sealed Ubuntu and Kali boxes, real terminals in your browser, save points and a memory guard. Made for everyday 8 GB laptops.",
-                src, active="air", og="og-air.jpg", air=True, extra_head=ld(ld_crumb('Vintage Air', 'air/')))
 
 
 def write(rel, text):
@@ -459,7 +437,6 @@ if __name__ == "__main__":
         write(f"products/{p['id']}/index.html", product_page(p))
     write("how/index.html", how_page())
     write("about/index.html", about_page())
-    write("air/index.html", air_page())
     # the small file the browser reads (contact only; pages already have the links baked in)
     urls = PAGES + [f"products/{p['id']}/" for p in DATA["products"]]
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
@@ -497,7 +474,7 @@ if __name__ == "__main__":
         write(f"tools/og/{p['id']}.html", og_template(p))
 
 
-# ------------------------------------------------------------------ shop + Vintage Air share images
+# ------------------------------------------------------------------ shop share image
 FONTS = '<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">'
 DOMAIN = SITE.replace("https://", "")
 
@@ -521,7 +498,7 @@ h1{{position:absolute;left:72px;top:160px;margin:0;width:600px;font:600 80px/.96
 <div class="m">{DOMAIN} · Nairobi</div>
 {card((p[0]['accent'], p[0]['name'], p[0]['line']), 'right:250px;top:64px;transform:rotate(-8deg)')}
 {card((p[1]['accent'], p[1]['name'], p[1]['line']), 'right:44px;top:176px;transform:rotate(7deg)')}
-{card(('#c8ff2e', 'Vintage Air', 'The workshop we build it all in.'), 'right:200px;top:370px;transform:rotate(-4deg)', True)}
+{card((p[3]['accent'], p[3]['name'], p[3]['line']), 'right:200px;top:370px;transform:rotate(-4deg)')}
 </body></html>"""
 
 
@@ -550,4 +527,3 @@ p{{position:absolute;left:72px;top:400px;width:560px;margin:0;font-size:24px;lin
 
 if __name__ == "__main__":
     write("tools/og/og.html", og_shop())       # -> assets/og-og.jpg, renamed by og.js
-    write("tools/og/air.html", og_air())
