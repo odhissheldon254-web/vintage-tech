@@ -182,6 +182,56 @@ def stack_html():
 AIR_MOCK = '<div data-mock></div>'
 
 
+
+# ------------------------------------------------------------------ structured data (JSON-LD, read by Google, invisible to visitors)
+ORG_ID = f"{SITE}/#org"
+
+
+def ld(obj):
+    return '\n  <script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>"
+
+
+def ld_org():
+    return {
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "Organization", "@id": ORG_ID, "name": "Vintage Tech", "url": SITE + "/",
+             "logo": {"@type": "ImageObject", "url": f"{SITE}/assets/icon-512.png", "width": 512, "height": 512},
+             "description": "A Nairobi software studio building ready-made platforms for real businesses: online shops with delivery, agent offices, campus boards and WhatsApp bots.",
+             "email": EMAIL, "telephone": "+" + WA,
+             "address": {"@type": "PostalAddress", "addressLocality": "Nairobi", "addressCountry": "KE"},
+             "areaServed": {"@type": "Country", "name": "Kenya"},
+             "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "telephone": "+" + WA, "email": EMAIL,
+                              "areaServed": "KE", "availableLanguage": ["English", "Swahili"]},
+             "makesOffer": [{"@type": "Offer", "itemOffered": {"@id": f"{SITE}/products/{p['id']}/#service"}} for p in DATA["products"]]},
+            {"@type": "WebSite", "@id": f"{SITE}/#website", "url": SITE + "/", "name": "Vintage Tech", "publisher": {"@id": ORG_ID}, "inLanguage": "en-KE"},
+        ],
+    }
+
+
+def ld_product(p):
+    url = f"{SITE}/products/{p['id']}/"
+    return {
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "Service", "@id": url + "#service", "name": p["name"], "url": url, "description": p["pitch"],
+             "serviceType": p["line"], "provider": {"@id": ORG_ID}, "areaServed": {"@type": "Country", "name": "Kenya"},
+             "audience": {"@type": "Audience", "audienceType": p["for"]},
+             "image": f"{SITE}/assets/og-{p['id']}.jpg"},
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Vintage Tech", "item": SITE + "/"},
+                {"@type": "ListItem", "position": 2, "name": "Products", "item": SITE + "/products/"},
+                {"@type": "ListItem", "position": 3, "name": p["name"], "item": url}]},
+        ],
+    }
+
+
+def ld_crumb(name, path):
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Vintage Tech", "item": SITE + "/"},
+        {"@type": "ListItem", "position": 2, "name": name, "item": f"{SITE}/{path}"}]}
+
+
 # ------------------------------------------------------------------ pages
 def home():
     live = [p for p in DATA["products"] if p["status"] == "ready" and p["proof"]["url"]]
@@ -235,7 +285,8 @@ def home():
       </div>
     </section>"""
     return page("index.html", "Vintage Tech — Software that runs real businesses",
-                "Vintage Tech is a Nairobi software studio: ready-built online shops, agent offices, campus boards and WhatsApp bots, plus Vintage Air, the workshop we build them in.", body)
+                "Vintage Tech is a Nairobi software studio: ready-built online shops, agent offices, campus boards and WhatsApp bots, plus Vintage Air, the workshop we build them in.", body,
+                extra_head=ld(ld_org()))
 
 
 def steps():
@@ -272,7 +323,7 @@ def products_page():
       </div>
     </section>"""
     return page("products/index.html", "Products — Vintage Tech",
-                "Duka, The Office, Campus Board and Remember: ready-built platforms from Vintage Tech, Nairobi.", body, active="products")
+                "Duka, The Office, Campus Board and Remember: ready-built platforms from Vintage Tech, Nairobi.", body, active="products", extra_head=ld(ld_crumb('Products', 'products/')))
 
 
 def product_page(p):
@@ -317,7 +368,7 @@ def product_page(p):
       </div>
     </section>"""
     return page(f"products/{p['id']}/index.html", f"{p['name']} — {p['line']} · Vintage Tech",
-                f"{p['name']} by Vintage Tech: {p['pitch']}", body, active="products", og=f"og-{p['id']}.jpg")
+                f"{p['name']} by Vintage Tech: {p['pitch']}", body, active="products", og=f"og-{p['id']}.jpg", extra_head=ld(ld_product(p)))
 
 
 def how_page():
@@ -354,7 +405,7 @@ def how_page():
         <div class="faq">{faq_html}</div>
       </div>
     </section>"""
-    return page("how/index.html", "How it works — Vintage Tech", "How buying from Vintage Tech works: three steps, three levels, and honest answers about price, ownership and support.", body, active="how")
+    return page("how/index.html", "How it works — Vintage Tech", "How buying from Vintage Tech works: three steps, three levels, and honest answers about price, ownership and support.", body, active="how", extra_head=ld(ld_crumb('How it works', 'how/')))
 
 
 def about_page():
@@ -382,14 +433,14 @@ def about_page():
         <p class="lede-sm">See what we've shipped: <a href="https://sosick.odhis.co.ke" target="_blank" rel="noopener">Sosick ↗</a> and <a href="https://agiza.odhis.co.ke" target="_blank" rel="noopener">Agiza ↗</a>, both live in Nairobi.</p></div>
       </div>
     </section>"""
-    return page("about/index.html", "About — Vintage Tech", "Vintage Tech is a Nairobi software studio building phone-first, WhatsApp-first platforms for real businesses.", body, active="about")
+    return page("about/index.html", "About — Vintage Tech", "Vintage Tech is a Nairobi software studio building phone-first, WhatsApp-first platforms for real businesses.", body, active="about", extra_head=ld(ld_crumb('About', 'about/')))
 
 
 def air_page():
     src = (ROOT / "tools" / "air-body.html").read_text()
     return page("air/index.html", "Vintage Air — The workshop for builders",
                 "Vintage Air by Vintage Tech: sealed Ubuntu and Kali boxes, real terminals in your browser, save points and a memory guard. Made for everyday 8 GB laptops.",
-                src, active="air", og="og-air.jpg", air=True)
+                src, active="air", og="og-air.jpg", air=True, extra_head=ld(ld_crumb('Vintage Air', 'air/')))
 
 
 def write(rel, text):
