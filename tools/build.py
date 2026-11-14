@@ -417,7 +417,7 @@ def about_page():
       <div class="wrap two">
         <div class="rv"><p class="kicker">How we build</p><h2 class="h2">In our own workshop.</h2></div>
         <div class="rv"><p class="lede-sm">Everything is made and tested in a workspace we built for ourselves: sealed test systems, save points and a calm screen for focus. It lets us try things safely and ship faster, on an ordinary laptop.</p>
-        <p class="lede-sm">See what we've shipped: <a href="https://sosick.odhis.co.ke" target="_blank" rel="noopener">Sosick ↗</a> and <a href="https://agiza.odhis.co.ke" target="_blank" rel="noopener">Agiza ↗</a>, both live in Nairobi.</p></div>
+        <p class="lede-sm">See what we've shipped: <a href="https://sosick.odhis.co.ke" target="_blank" rel="noopener">Sosick ↗</a>, live in Nairobi, and <a href="/products/office/demo/" target="_blank" rel="noopener">The Office ↗</a>, running for an agent today (try the demo).</p></div>
       </div>
     </section>"""
     return page("about/index.html", "About — Vintage Tech", "Vintage Tech is a Nairobi software studio building phone-first, WhatsApp-first platforms for real businesses.", body, active="about", extra_head=ld(ld_crumb('About', 'about/')))
